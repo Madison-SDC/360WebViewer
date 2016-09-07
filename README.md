@@ -15,3 +15,21 @@ in the libs folder from step 2.
 * Go to [mozilla's vr library] (https://aframe.io/docs/0.3.0/introduction/getting-started.html#include-the-js-build).
 * Click the Development Version 0.3.0 button and save it as "aframe.js" in the
 libs folder from step 2.
+
+# Layouts
+This directory is intended to hold all html files. 
+
+test.html is a sample layout that shows how to include the correct scripts as well as implementation of basic aframe components and a sample webgazer application.
+
+# Javascript
+This directory is intended to hold all javascript files.
+
+webgazerExample.js is taken from the script in brown's webgazer sample project.
+
+# Styles
+This directory is intended to hold all css files.
+
+Currently, there are no stylesheets for this application but a uniform style would make the front end seem more professional.
+
+# Libs
+This directory is intended to hold all dependencies for the project. Currently there is no dependency management system so any additional libraries to be added should be documented in the "How to Set up" instructions above.
