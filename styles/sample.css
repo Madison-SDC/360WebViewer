@@ -1,4 +1,6 @@
-body{
-	height: 75%;
-	width: 75%;
+h1{
+	font-size: 36px;
+	font-family: Helvetica, fantasy;
+	background-color: lightgrey;
+	text-align: center;
 }
