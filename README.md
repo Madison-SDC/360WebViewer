@@ -17,7 +17,7 @@ in the libs folder from step 2.
 * Click the Development Version 0.3.0 button and save it as "aframe.js" in the
 libs folder from step 2.
 
-# Running the project
+# Running the Project
 Requirements
 
 * Latest version of Firefox
