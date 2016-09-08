@@ -49,6 +49,7 @@ Currently, there is only a sample stylesheet for this application but a uniform
 style would make the front end seem more professional.
 
 # Libs
-This directory is intended to hold all dependencies for the project. Currently
-there is no dependency management system so any additional libraries to be added
+This directory is intended to hold all dependencies for the project. 
+
+Currently there is no dependency management system so any additional libraries to be added
 should be documented in the "How to Set up" instructions above.
