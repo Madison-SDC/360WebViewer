@@ -1,8 +1,5 @@
 # 360WebViewer
-This project utilizes open source libraries to create a more immersive web
-experience. The ultimate goal is to create a browser add-on that detects 360
-degree content in web browsers and prompts the user to input using webcam gaze
-tracking.
+This project utilizes open source libraries to create a more immersive web experience. This will be a website/webapp that showcases the immersive webviewing capabilities. The purpose of the website is to promote the browser add-on that we will create with this. The application will detect 360 degree content in web browsers and prompts the user to input using webcam gaze tracking. The panning of the 360 degree content will then be handled by gaze tracking, ie. if the user looks at the right edge of the 360 degree photo/video the photo/video will pan to the right. Hopefully this will provide a more immersive 360 degree content viewing on personal computers. 
 
 # How to Set up
 This project requires two libraries to be placed in a folder in the root
