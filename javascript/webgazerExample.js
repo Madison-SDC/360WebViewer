@@ -2,7 +2,7 @@ window.onload = function() {
     webgazer.setRegression('ridge') /* currently must set regression and tracker */
         .setTracker('clmtrackr')
         .setGazeListener(function(data, clock) {
-         if(data != null) console.log(data.x,data.y); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
+         //if(data != null) console.log(data.x,data.y); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
          //   console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
         })
         .begin()
@@ -39,6 +39,15 @@ window.onload = function() {
 
         var cl = webgazer.getTracker().clm;
 
+        var mouseDown = new MouseEvent("mouseDown", {
+          view: window,
+          bullbes: true,
+          cancelable: true,
+          clientX: 20,
+        });
+        targetElement = document.getElementById("3DScene");
+        targetElement.dispatchEvent(mouseDown);
+
         function drawLoop() {
             requestAnimFrame(drawLoop);
             overlay.getContext('2d').clearRect(0,0,width,height);
@@ -58,7 +67,6 @@ window.onload = function() {
     }
     setTimeout(checkIfReady,100);
 };
-
 
 window.onbeforeunload = function() {
     //webgazer.end(); //Uncomment if you want to save the data even if you reload the page.
