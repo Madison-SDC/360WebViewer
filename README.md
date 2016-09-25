@@ -13,6 +13,8 @@ in the libs folder from step 2.
 * Go to [mozilla's vr library] (https://aframe.io/docs/0.3.0/introduction/getting-started.html#include-the-js-build).
 * Click the Development Version 0.3.0 button and save it as "aframe.js" in the
 libs folder from step 2.
+* Comment out line 58012 of aframe.js (`window.addEventListener('mouseup', this.releaseMouse, false);`) NOTE: this is a temporary implementation to get around mouseup events
+
 
 # Running the Project
 Requirements
