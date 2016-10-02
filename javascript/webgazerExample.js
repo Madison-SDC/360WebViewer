@@ -1,9 +1,14 @@
 window.onload = function() {
+    var x = 0;
+    var y = 0;
     webgazer.setRegression('ridge') /* currently must set regression and tracker */
         .setTracker('clmtrackr')
         .setGazeListener(function(data, clock) {
-         if(data != null) console.log(data.x,data.y); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
-         //   console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
+         if(data != null){
+           x = data.x;
+           y = data.y;
+           console.log("X:" + x + ", Y: " + y);
+         }
         })
         .begin()
         .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
@@ -15,6 +20,7 @@ window.onload = function() {
 
     var setup = function() {
         var video = document.getElementById('webgazerVideoFeed');
+        var scene = document.getElementById('3DScene');
         video.style.display = 'block';
         video.style.position = 'absolute';
         video.style.top = topDist;
