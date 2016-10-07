@@ -1,0 +1,8 @@
+{
+  "name": "360WebViewer",
+  "version": "1.0.0",
+  "dependencies": {
+    "aframe": "^0.3.1",
+    "webgazer": "git+https://git@github.com/brownhci/WebGazer.git"
+  }
+}
