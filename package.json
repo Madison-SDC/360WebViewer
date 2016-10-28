@@ -1,8 +1,14 @@
 {
   "name": "360WebViewer",
   "version": "1.0.0",
+  "scripts": {
+    "dev": "budo javascript/main.js:build.js --dir layouts --port 8000 --live --open"
+  },
   "dependencies": {
     "aframe": "^0.3.1",
-    "webgazer": "git+https://git@github.com/brownhci/WebGazer.git"
+    "webgazer": "git+https://git@github.com/brownhci/WebGazer.git",
+    "budo": "^8.2.2",
+    "browserify": "^13.0.0",
+    "browserify-css": "^0.9.1"
   }
 }
