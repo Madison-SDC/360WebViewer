@@ -3,23 +3,19 @@ This project utilizes open source libraries to create a more immersive web exper
 
 # How to Set up
 
-* Clone [this repo] (https://github.com/jsimonson2013/360WebViewer.git).
+* `git clone https://github.com/jsimonson2013/360WebViewer.git`
 * `cd 360WebViewer`
 * `npm install`
-* `npm run dev`
 
 # Running the Project
 Requirements
 
 * Latest version of Firefox
 
-To run the project simply navigate to the test.html file in a file explorer and
-open the file with Firefox. Firefox should launch and prompt you to allow the
-page to use your webcam. Allow the site to use your webcam and a window should
-appear in the upper left corner of the window.
+To run the project simply navigate to the 360WebViewer directory and run
 
-This may take a few attempts as the processes for rendering 3D content and eye
-tracking a resource intensive and currently bug prone.
+* `npm run dev`
+* If Firefox is not your default browser you will have to open Firefox and paste the server address in the URL
 
 # Layouts
 This directory is intended to hold all html files.
