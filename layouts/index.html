@@ -5,18 +5,28 @@
       <title>360 WebViewer</title>
       <script src="build.js"></script>
       <script>
-
         window.onload = function() {
             console.log("init webgazer");
-            var x = 0;
-            var y = 0;
+            var gaze_x = 0;
+            var gaze_y = 0;
+            var sceneEl = document.querySelector('a-scene');
+            var canvasEl = sceneEl && sceneEl.canvas;
+            var event = new CustomEvent('gazemove', {
+              detail: {
+                'x': gaze_x,
+                'y': gaze_y,
+              },
+              bubbles: true,
+              cancelable: true
+            });
+            event.initEvent('gazemove', true, true);
             webgazer.setRegression('ridge') /* currently must set regression and tracker */
                 .setTracker('clmtrackr')
                 .setGazeListener(function(data, clock) {
                  if(data != null){
-                   x = data.x;
-                   y = data.y;
-                   console.log("X:" + x + ", Y: " + y);
+                   event.detail.x = data.x;
+                   event.detail.y = data.y;
+                   canvasEl.dispatchEvent(event);
                  }
                 })
                 .begin()
@@ -53,7 +63,6 @@
                 document.body.appendChild(overlay);
 
                 var cl = webgazer.getTracker().clm;
-
                 function drawLoop() {
                     requestAnimFrame(drawLoop);
                     overlay.getContext('2d').clearRect(0,0,width,height);
@@ -88,6 +97,7 @@
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
       <a-sky color="#ECECEC"></a-sky>
+      <a-entity camera gaze-controls></a-entity>
     </a-scene>
   </body>
 </html>
