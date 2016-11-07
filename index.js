@@ -196,21 +196,24 @@ if (typeof AFRAME === 'undefined') {
       this.zeroQuaternion.setFromEuler(euler);
     },
 
-    // TODO: function to handle gaze movement
     onGazeMove: function(event) {
+      var scene = document.getElementById('3DScene');
+      var width = scene.width;
+      var height = scene.height;
       var pitchObject = this.pitchObject;
       var yawObject = this.yawObject;
       var previousGazeEvent = this.previousGazeEvent;
 
       if (!this.data.enabled) { return; }
 
-      var movementX = event.detail.x;
-      var movementY = event.detail.y;
-
-      if (movementX === undefined || movementY === undefined) {
-        movementX = event.detail.x - previousGazeEvent.detail.x;
-        movementY = event.detail.y - previousMouseEvent.detail.y;
+      if (Math.abs(event.detail.x - 650) > 25){
+        var movementX = (event.detail.x - 650)/10;
       }
+
+      if(Math.abs(event.detail.y - 300) > 15){
+        var movementY = (event.detail.y - 300)/10;
+      }
+
       this.previousGazeEvent = event;
 
       yawObject.rotation.y -= movementX * 0.002;
@@ -240,6 +243,7 @@ if (typeof AFRAME === 'undefined') {
     },
 
     onMouseDown: function (event) {
+      console.log('mouse x',event.screenX,'mouse y',event.screenY);
       this.mouseDown = true;
       this.previousMouseEvent = event;
     },
