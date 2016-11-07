@@ -208,10 +208,14 @@ if (typeof AFRAME === 'undefined') {
 
       if (Math.abs(event.detail.x - 650) > 25){
         var movementX = (event.detail.x - 650)/10;
+      }else{
+        var movementX = 0;
       }
 
       if(Math.abs(event.detail.y - 300) > 15){
         var movementY = (event.detail.y - 300)/10;
+      }else{
+        var movementY = 0;
       }
 
       this.previousGazeEvent = event;
