@@ -206,13 +206,13 @@ if (typeof AFRAME === 'undefined') {
 
       if (!this.data.enabled) { return; }
 
-      if (Math.abs(event.detail.x - 650) > 25){
+      if (Math.abs(event.detail.x - 650) > 75){
         var movementX = (event.detail.x - 650)/10;
       }else{
         var movementX = 0;
       }
 
-      if(Math.abs(event.detail.y - 300) > 15){
+      if(Math.abs(event.detail.y - 300) > 50){
         var movementY = (event.detail.y - 300)/10;
       }else{
         var movementY = 0;
