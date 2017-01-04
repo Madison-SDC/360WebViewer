@@ -7,10 +7,15 @@
       <script>
         window.onload = function() {
             console.log("init webgazer");
+
+            // Initialize gaze coordinates and store view elements
             var gaze_x = 0;
             var gaze_y = 0;
             var sceneEl = document.querySelector('a-scene');
             var canvasEl = sceneEl && sceneEl.canvas;
+
+            // Custom event to update gaze point and trigger handler in
+            // gaze controls. Holds x- and y-coordinate of gaze prediction.
             var event = new CustomEvent('gazemove', {
               detail: {
                 'x': gaze_x,
@@ -20,23 +25,25 @@
               cancelable: true
             });
             event.initEvent('gazemove', true, true);
-            webgazer.setRegression('ridge') /* currently must set regression and tracker */
+
+            webgazer.setRegression('ridge')
                 .setTracker('clmtrackr')
                 .setGazeListener(function(data, clock) {
+
+                 // Update gaze coordinates and fire the event.
                  if(data != null){
                    event.detail.x = data.x;
                    event.detail.y = data.y;
                    canvasEl.dispatchEvent(event);
                  }
+
                 })
                 .begin()
-                .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
-
+                .showPredictionPoints(true);
             var width = 320;
             var height = 240;
             var topDist = '0px';
             var leftDist = '0px';
-
             var setup = function() {
                 var video = document.getElementById('webgazerVideoFeed');
                 var scene = document.getElementById('3DScene');
@@ -47,10 +54,8 @@
                 video.width = width;
                 video.height = height;
                 video.style.margin = '0px';
-
                 webgazer.params.imgWidth = width;
                 webgazer.params.imgHeight = height;
-
                 var overlay = document.createElement('canvas');
                 overlay.id = 'overlay';
                 overlay.style.position = 'absolute';
@@ -59,9 +64,7 @@
                 overlay.style.top = topDist;
                 overlay.style.left = leftDist;
                 overlay.style.margin = '0px';
-
                 document.body.appendChild(overlay);
-
                 var cl = webgazer.getTracker().clm;
                 function drawLoop() {
                     requestAnimFrame(drawLoop);
@@ -72,7 +75,6 @@
                 }
                 drawLoop();
             };
-
             function checkIfReady() {
                 if (webgazer.isReady()) {
                     setup();
@@ -82,20 +84,14 @@
             }
             setTimeout(checkIfReady,100);
         };
-
         window.onbeforeunload = function() {
-            //webgazer.end(); //Uncomment if you want to save the data even if you reload the page.
-            window.localStorage.clear(); //Comment out if you want to save data across different sessions
+            window.localStorage.clear();
         }
       </script>
     </head>
     <body>
     <a-scene id="3DScene">
-      <!--<a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" width="1" height="1" depth="1" color="#4CC3D9"></a-box>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>-->
-      <a-sky src="image.jpg" rotation="0 -130 0"></a-sky>
+      <a-sky src="image2.jpg" rotation="0 -130 0"></a-sky>
       <a-entity camera gaze-controls></a-entity>
     </a-scene>
   </body>
