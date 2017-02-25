@@ -17,7 +17,7 @@ This project utilizes open source libraries to create a more immersive web exper
 
 * `npm run dev`
 * Copy the url address written to the output.
-* Modify Google Chrome -Shortcut -Target Field properties to read: "<chrome-app-path>" --unsafely-treat-insecure-origin-as-secure="<url-address-copied>" --user-data-dir=<chrome-app-directory> 
+* Modify Google Chrome -Shortcut -Target Field properties to read: "/chrome-app-path/" --unsafely-treat-insecure-origin-as-secure="url-address-copied" --user-data-dir=/chrome-app-directory/
 * Apply changes
 * Navigate to copied url address
 
