@@ -1,5 +1,8 @@
 # 360WebViewer
-This project utilizes open source libraries to create a more immersive web experience. This will be a website/webapp that showcases the immersive webviewing capabilities. The purpose of the website is to promote the browser add-on that we will create with this. The application will detect 360 degree content in web browsers and prompts the user to input using webcam gaze tracking. The panning of the 360 degree content will then be handled by gaze tracking, ie. if the user looks at the right edge of the 360 degree photo/video the photo/video will pan to the right. Hopefully this will provide a more immersive 360 degree content viewing on personal computers.
+
+This project utilizes two open source libraries to create a virtual reality experience on laptop and desktops computers. WebGazer.js (https://webgazer.cs.brown.edu/) uses computer vision to track user gaze with builtin webcams. AFrame (https://aframe.io/) allows easy creation of 360-degree scenes and components for interacting with 360 element. A custom JavaScript Event is fired when user gaze moves and a custom look-control responds by panning accordingly. 
+
+Because this project requires the webcam, web browsers require it to be hosted on HTTPS. However, this can be worked around using the Google Chrome flag: --unsafely-treat-insecure-origin-as-secure. Instructions for setting up the project and running it can be found below.
 
 # Software Requirements
 
@@ -19,5 +22,4 @@ This project utilizes open source libraries to create a more immersive web exper
 * Copy the url address written to the output.
 * Modify Google Chrome -Shortcut -Target Field properties to read: "/chrome-app-path/" --unsafely-treat-insecure-origin-as-secure="url-address-copied" --user-data-dir=/chrome-app-directory/
 * Apply changes
-* Navigate to copied url address
-
+* Open Chrome and navigate to copied url address
